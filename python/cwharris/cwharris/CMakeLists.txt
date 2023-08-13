@@ -3,12 +3,10 @@ rapids_cython_create_modules(
     MODULE_PREFIX cwharris
     SOURCE_FILES
         hello_cython.pyx
-        hello_cython_2.pyx
 )
 
 rapids_pybind11_create_modules(
     MODULE_PREFIX cwharris
     SOURCE_FILES
         hello_pybind11.cpp
-        hello_pybind11_2.cpp
 )
