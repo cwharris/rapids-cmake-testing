@@ -1,0 +1,7 @@
+#!/bin/bash
+cd $(dirname "$(realpath "$0")")
+set -Eeox pipefail
+
+dev-conda-update-env
+
+conda activate ${DEFAULT_CONDA_ENV}

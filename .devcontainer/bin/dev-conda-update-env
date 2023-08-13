@@ -1,0 +1,12 @@
+#!/bin/bash
+cd $(dirname "$(realpath "$0")")
+set -Eeox pipefail
+
+conda_env_find(){
+    conda env list | grep "${@}" >/dev/null 2>/dev/null
+}
+
+if conda_env_find "${DEFAULT_CONDA_ENV}" ; \
+then mamba env update --name ${DEFAULT_CONDA_ENV} -f ${DEFAULT_CONDA_ENV_FILE} --prune; \
+else mamba env create --name ${DEFAULT_CONDA_ENV} -f ${DEFAULT_CONDA_ENV_FILE}; \
+fi

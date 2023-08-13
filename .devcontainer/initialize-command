@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# this script is executed from the local workspace folder
+
+set -Eeox pipefail
+
+mkdir -p ../.config
+mkdir -p ../.conda/pkgs
+mkdir -p .cache/conda/envs

@@ -1,0 +1,33 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "initializeCommand": "${localWorkspaceFolder}/.devcontainer/initialize-command",
+    "postAttachCommand": "post-attach-command",
+    "mounts": [
+        { // shared general config directory for sister projects
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/../.config",
+            "target": "/home/coder/.config"
+        },
+        { // shared conda packages directory for sister projects
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/../.conda/pkgs",
+            "target": "/home/coder/.conda/pkgs"
+        },
+        {
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/.cache/conda/envs",
+            "target": "/home/coder/.conda/envs"
+        },
+        {
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/.devcontainer/bin",
+            "target": "/devcontainer/bin"
+        }
+    ],
+    "containerEnv": {
+        "DEFAULT_CONDA_ENV": "testing",
+        "DEFAULT_CONDA_ENV_FILE": "${containerWorkspaceFolder}/conda/environment.yml"
+    }
+}
