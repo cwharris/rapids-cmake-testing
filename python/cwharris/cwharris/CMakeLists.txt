@@ -1,13 +1,17 @@
-# function(rapids_pybind11_create_modules)
-#   include(${CMAKE_CURRENT_FUNCTION_LIST_DIR}/detail/verify_init.cmake)
-#   rapids_pybind11_verify_init()
 
-#   list(APPEND CMAKE_MESSAGE_CONTEXT "rapids.pybind11.create_modules")
-
-#   set(_rapids_pybind11_options CXX)
-#   set(_rapids_pybind11_one_value INSTALL_DIR MODULE_PREFIX)
 rapids_cython_create_modules(
     CXX
-    SOURCE_FILES hello.pyx
+    SOURCE_FILES hello_cython.pyx
     MODULE_PREFIX cwharris
 )
+
+# rapids_pybind11_create_modules(
+#     SOURCE_FILES hello_pybind11.cpp
+#     MODULE_PREFIX cwharris
+# )
+
+pybind11_add_module(_cwharris_hello_pybind11 MODULE hello_pybind11.cpp)
+set_target_properties(_cwharris_hello_pybind11 PROPERTIES OUTPUT_NAME hello_pybind11)
+cmake_path(RELATIVE_PATH CMAKE_CURRENT_SOURCE_DIR BASE_DIRECTORY "${PROJECT_SOURCE_DIR}"
+           OUTPUT_VARIABLE _PYBIND_INSTALL_DIR)
+install(TARGETS _cwharris_hello_pybind11 DESTINATION ${_PYBIND_INSTALL_DIR})

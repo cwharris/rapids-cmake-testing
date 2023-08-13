@@ -5,3 +5,4 @@ dependencies:
   - scikit-build
   - setuptools
   - cython
+  - pybind11
