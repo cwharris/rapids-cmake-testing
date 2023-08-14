@@ -1,3 +1,7 @@
+#!/bin/bash
+cd $(dirname "$(realpath "$0")")
+set -Eeox pipefail
+
 (
     cd cpp/example
     cmake -S . -B build
