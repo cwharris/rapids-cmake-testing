@@ -7,11 +7,11 @@ include(rapids-cmake)
 include(rapids-cython)
 include(rapids-pybind11) # this is a local module
 
-project(cwharris_python)
+project(example_python)
 
 rapids_cython_init()
 rapids_pybind11_init()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_subdirectory("cwharris")
+add_subdirectory("example")

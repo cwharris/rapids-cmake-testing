@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(cwharris)
+project(example)
 
 add_library(
-    cwharris
+    example
     src/math.cpp
 )
 
 target_include_directories(
-    cwharris
+    example
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
