@@ -12,4 +12,6 @@ project(cwharris_python)
 rapids_cython_init()
 rapids_pybind11_init()
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_subdirectory("cwharris")

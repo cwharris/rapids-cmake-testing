@@ -97,7 +97,7 @@ function(rapids_pybind11_create_modules)
     string(PREPEND pybind11_module ${_RAPIDS_PYBIND11_MODULE_PREFIX})
 
     # Generate C++ from pybind11 and create a library for the resulting extension module to compile.
-    pybind11_add_module(${pybind11_module} MODULE "${pybind11_filename}" )
+    pybind11_add_module(${pybind11_module} MODULE "${pybind11_filename}")
 
     # The final library name must match the original filename and must ignore the prefix.
     set_target_properties(${pybind11_module} PROPERTIES LIBRARY_OUTPUT_NAME ${pybind11_module_filename})

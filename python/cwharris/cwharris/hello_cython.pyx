@@ -1,3 +1,5 @@
-cpdef void hello(str strArg):
-    "Prints back 'Hello <param>', for example example: hello.hello('you')"
-    print("Hello, {}!)".format(strArg))
+cpdef void hello(str name):
+    """
+    Prints back 'Hello <name>'
+    """
+    print(f"Hello, {name}!)")
