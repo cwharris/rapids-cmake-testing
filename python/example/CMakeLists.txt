@@ -9,6 +9,8 @@ include(rapids-pybind11) # this is a local module
 
 project(example_python)
 
+find_package(example REQUIRED)
+
 rapids_cython_init()
 rapids_pybind11_init()
 

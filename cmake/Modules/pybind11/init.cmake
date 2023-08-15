@@ -36,7 +36,6 @@ macro(rapids_pybind11_init)
   # Only initialize once.
   if(NOT DEFINED RAPIDS_PYBIND11_INITIALIZED)
 
-    # find_package(PythonExtensions REQUIRED)
     find_package(pybind11 CONFIG REQUIRED)
 
     # Flag
