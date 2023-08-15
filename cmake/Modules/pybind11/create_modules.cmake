@@ -104,7 +104,7 @@ function(rapids_pybind11_create_modules)
 
     # Link the module to the requested libraries
     if(DEFINED _RAPIDS_PYBIND11_LINKED_LIBRARIES)
-      target_link_libraries(${pybind11_module} ${_RAPIDS_PYBIND11_LINKED_LIBRARIES})
+      target_link_libraries(${pybind11_module} PRIVATE ${_RAPIDS_PYBIND11_LINKED_LIBRARIES})
     endif()
 
     # Compute the install directory relative to the source and rely on installs being relative to

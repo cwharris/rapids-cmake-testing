@@ -1,10 +1,11 @@
 #include <iostream>
 #include <pybind11/pybind11.h>
+#include <example/math.hpp>
 
 namespace py = pybind11;
 
 int return_three() {
-    return 3;
+    return example::math::add(1, 2);
 }
 
 PYBIND11_MODULE(hello_pybind11, m) {

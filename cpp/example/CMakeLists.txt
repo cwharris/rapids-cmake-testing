@@ -14,41 +14,32 @@ add_library(example::example ALIAS example)
 
 target_include_directories(
     example
-    PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    INTERFACE $<INSTALL_INTERFACE:include>
 )
 
-install(TARGETS example EXPORT example-exports)
+install(
+    TARGETS example
+    EXPORT example-exports
+)
 
-# install(EXPORT example-exports DESTINATION lib/example)
+include(GNUInstallDirs)
+install(
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/example
+    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+)
 
-# rapids_export_package(
-#     BUILD
-#         example
-#         example-exports
-#     GLOBAL_TARGETS
-#         example::example
-# )
+rapids_export(
+    BUILD example
+    EXPORT_SET example-exports
+    NAMESPACE example::
+    GLOBAL_TARGETS
+        example
+)
 
-# rapids_export_package(
-#     INSTALL
-#         example
-#         example-exports
-#     GLOBAL_TARGETS
-#         example::example
-# )
-
-# rapids_export(
-#     BUILD example
-#     EXPORT_SET example-exports
-#     GLOBAL_TARGETS
-#         example::example
-# )
-
-# rapids_export(
-#     INSTALL example
-#     EXPORT_SET example-exports
-#     GLOBAL_TARGETS
-#         example::example
-# )
+rapids_export(
+    INSTALL example
+    EXPORT_SET example-exports
+    GLOBAL_TARGETS
+        example
+)
