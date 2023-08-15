@@ -2,7 +2,9 @@ channels:
   - conda-forge
 dependencies:
   - cxx-compiler
+  - cython
+  - gtest
+  - pybind11
+  - pytest
   - scikit-build
   - setuptools
-  - cython
-  - pybind11

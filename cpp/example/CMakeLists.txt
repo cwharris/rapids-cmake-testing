@@ -3,14 +3,20 @@ cmake_minimum_required(VERSION 3.20)
 include(../../fetch_rapids.cmake)
 include(rapids-cmake)
 include(rapids-export)
+include(rapids-cpm)
 
 project(example)
+
+rapids_cpm_init()
 
 add_library(example SHARED
     src/math.cpp
 )
 
 add_library(example::example ALIAS example)
+
+enable_testing()
+add_subdirectory(tests)
 
 target_include_directories(
     example
