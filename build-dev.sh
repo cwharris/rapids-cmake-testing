@@ -7,7 +7,8 @@ EXAMPLE_ROOT=$PWD
 (
     cd cpp/example
 
-    rm -rf build
+    # rm -rf build
+
     cmake -S . -B build
     cmake --build build
     ctest --test-dir build
@@ -15,7 +16,7 @@ EXAMPLE_ROOT=$PWD
 (
     cd python/example
 
-    rm -rf _skbuild
+    # rm -rf _skbuild
 
     CMAKE_ARGS=""
     CMAKE_ARGS="$CMAKE_ARGS -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=ON"
