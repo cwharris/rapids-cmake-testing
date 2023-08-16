@@ -16,8 +16,14 @@ EXAMPLE_ROOT=$PWD
     cd python/example
 
     rm -rf _skbuild
-    CMAKE_ARGS="-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=ON -Dexample_DIR=$EXAMPLE_ROOT/cpp/example/build --debug-find-pkg=gtest" \
-    SETUPTOOLS_ENABLE_FEATURES="legacy-editable" \
+
+    CMAKE_ARGS=""
+    CMAKE_ARGS="$CMAKE_ARGS -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=ON"
+    CMAKE_ARGS="$CMAKE_ARGS -Dexample_DIR=$EXAMPLE_ROOT/cpp/example/build"
+
+    SETUPTOOLS_ENABLE_FEATURES="legacy-editable"
+
     pip install --no-deps --no-build-isolation -e . -V
+
     pytest
 )
